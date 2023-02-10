@@ -1,0 +1,7 @@
+.example-form {
+    position: relative;
+    left: 25px;
+    min-width: 150px;
+    max-width: 200px;
+    width: 100%;
+  }

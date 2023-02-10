@@ -1,0 +1,21 @@
+<div *ngIf="isAdd ; else buttonAdd">
+  <app-add [libro]="libro" (fatto)="onFatto($event)"></app-add>
+</div>
+<ng-template #buttonAdd>
+  <button mat-raised-button color="accent" (click)="add()">Add libro</button>
+  <hr>
+  
+  <div *ngFor="let libro of libri$ | async">
+    <mat-list>
+      <mat-list-item>{{libro.id}} - {{libro.titolo}} - {{libro.autore}} - {{libro.prezzoCopertina}}
+
+        <button mat-icon-button color="accent" aria-label="Example icon button with a home icon" (click)="canc(libro.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+
+        <button mat-stroked-button color="accent" (click)="update(libro)">Update</button>
+      </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+  </div>
+</ng-template>

@@ -1,0 +1,26 @@
+<h2>Add libro</h2>
+<form [formGroup]="librofrm" (ngSubmit)="onSubmit(librofrm.value)" class="example-form">
+<input type="input" id="id" placeholder="id" formControlName="id" hidden>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Titolo:</mat-label>
+          <input matInput id="titolo" placeholder="titolo" formControlName="titolo">
+          <mat-error *ngIf="librofrm.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Autore:</mat-label>
+            <input matInput id="autore" placeholder="autore" formControlName="autore">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Prezzo:</mat-label>
+            <input matInput id="prezzoCopertina" placeholder="prezzo di Copertina" formControlName="prezzoCopertina">
+          </mat-form-field>
+    
+
+    <br>
+    <button mat-flat-button color="accent" [disabled]="!librofrm.valid">Salva</button>
+    <!-- <button mat-flat-button color="accent" >Salva</button> -->
+    <button mat-stroked-button color="accent" (click)="annulla()">Annulla</button>
+</form>
